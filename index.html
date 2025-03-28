@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered betting insights and analysis platform">
+    <meta name="keywords" content="betting, AI, sports betting, odds analysis">
+    <meta name="author" content="BettingAI">
+    <title>BettingAI Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> BettingAI</h1>
+            <p>AI-Powered Betting Analysis & Insights</p>
+        </header>
+
+        <main>
+            <div class="betting-section">
+                <h2><i class="fas fa-futbol"></i> Sports Matches</h2>
+                
+                <div class="sports-selector">
+                    <div class="selector-group">
+                        <label for="sportSelector">Sport:</label>
+                        <select id="sportSelector" class="custom-select">
+                            <!-- Sports will be populated here -->
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label for="leagueSelector">League:</label>
+                        <select id="leagueSelector" class="custom-select">
+                            <!-- Leagues will be populated here -->
+                        </select>
+                    </div>
+                    
+                    <div class="selector-group">
+                        <label for="dateRange">Time frame:</label>
+                        <select id="dateRange" class="custom-select">
+                            <option value="today">Today</option>
+                            <option value="tomorrow">Tomorrow</option>
+                            <option value="week" selected>This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <input type="text" id="teamSearch" placeholder="Search for teams...">
+                    </div>
+                    <div class="sort-controls">
+                        <button class="sort-button active" data-sort="time">Time</button>
+                        <button class="sort-button" data-sort="league">League</button>
+                        <button class="sort-button" data-sort="odds">Best Odds</button>
+                        <button id="refreshData" class="refresh-button"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+                <div class="matches-container" id="matchesContainer">
+                    <!-- Matches will be populated here -->
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="ai-section">
+                    <h2><i class="fas fa-robot"></i> AI Analysis</h2>
+                    <div class="ai-prompt">
+                        <label for="promptInput"><i class="fas fa-question-circle"></i> Ask AI about betting insights:</label>
+                        <textarea id="promptInput" placeholder="Example: What are the chances of Manchester United winning against Liverpool?"></textarea>
+                        <button id="generateBtn"><i class="fas fa-brain"></i> Get AI Analysis</button>
+                    </div>
+                    <div class="ai-response" id="aiResponse">
+                        <div class="response-placeholder">AI analysis will appear here...</div>
+                    </div>
+                </div>
+                
+                <div class="betslip-section">
+                    <h2><i class="fas fa-receipt"></i> Your Bet Slip</h2>
+                    <div id="betslip" class="betslip-container">
+                        <div class="empty-betslip">Your bet slip is empty</div>
+                    </div>
+                    <div class="betslip-total">
+                        <div class="stake-input">
+                            <label for="stakeAmount">Stake:</label>
+                            <input type="number" id="stakeAmount" min="1" value="10">
+                        </div>
+                        <div class="potential-return">
+                            <span>Potential Return:</span>
+                            <span id="potentialReturn">$0.00</span>
+                        </div>
+                        <button id="placeBetBtn" class="place-bet-btn" disabled><i class="fas fa-check-circle"></i> Place Bet</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 BettingAI Platform - For educational purposes only | <span class="disclaimer">Always bet responsibly</span></p>
+        </footer>
+    </div>
+
+    <script src="sportsAPI.js"></script>
+    <script src="sportsData.js"></script>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
